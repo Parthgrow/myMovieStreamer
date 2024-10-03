@@ -6,61 +6,62 @@ import { FAQComp } from "../components/FAQComp";
 import { TrendingSlider } from "../components/TrendingSlider";
 import netflixBackground from "../assets/netflix_background.png";
 import { backgroundLayout } from "../components/layouts/backgroundLayout";
+import TrendingCardSlider from "../components/TrendingCardSlider";
+
+export const trendingMovies = [
+  {
+    number: 1,
+    graphicLink:
+      "https://image.tmdb.org/t/p/original/u4FUEJfI8TjT9g6m0Hp9BOyK6XS.jpg",
+  },
+  {
+    number: 2,
+    graphicLink:
+      "https://image.tmdb.org/t/p/original/kG5GAbAPeAr8FgLoTsj17vXg6ah.jpg",
+  },
+  {
+    number: 3,
+    graphicLink:
+      "https://image.tmdb.org/t/p/original/xDevExMQ1gUCs74vqaVqU3DQ9fl.jpg",
+  },
+  {
+    number: 4,
+    graphicLink:
+      "https://image.tmdb.org/t/p/original/pXcWS0Zb2OMDqpybiS3FZJVyP7C.jpg",
+  },
+  {
+    number: 5,
+    graphicLink:
+      "https://image.tmdb.org/t/p/original/zqKmF2sHJC8RTzUCcbWcxtpjn9V.jpg",
+  },
+  {
+    number: 6,
+    graphicLink:
+      "https://image.tmdb.org/t/p/original/r4BweFFbjiZCQtHqRsNPdgdzZq5.jpg",
+  },
+  {
+    number: 7,
+    graphicLink:
+      "https://image.tmdb.org/t/p/original/o9ilgVRlPt5nd9sDAgNSq6zYyy4.jpg",
+  },
+  {
+    number: 8,
+    graphicLink:
+      "https://image.tmdb.org/t/p/original/3Q2tlBbSJxL7I9oUU7abWnL8nAs.jpg",
+  },
+  {
+    number: 9,
+    graphicLink:
+      "https://image.tmdb.org/t/p/original/bA7XKYFmr8uuM6Yw6yHhJks9bRR.jpg",
+  },
+  {
+    number: 10,
+    graphicLink:
+      "https://image.tmdb.org/t/p/original/j7fMYs4qiVqaPz9dBCT9ddG8yuV.jpg",
+  },
+];
 
 function HomePage() {
-  const trendingMovies = [
-    {
-      number: 1,
-      graphicLink:
-        "https://image.tmdb.org/t/p/original/u4FUEJfI8TjT9g6m0Hp9BOyK6XS.jpg",
-    },
-    {
-      number: 2,
-      graphicLink:
-        "https://image.tmdb.org/t/p/original/kG5GAbAPeAr8FgLoTsj17vXg6ah.jpg",
-    },
-    {
-      number: 3,
-      graphicLink:
-        "https://image.tmdb.org/t/p/original/xDevExMQ1gUCs74vqaVqU3DQ9fl.jpg",
-    },
-    {
-      number: 4,
-      graphicLink:
-        "https://image.tmdb.org/t/p/original/pXcWS0Zb2OMDqpybiS3FZJVyP7C.jpg",
-    },
-    {
-      number: 5,
-      graphicLink:
-        "https://image.tmdb.org/t/p/original/zqKmF2sHJC8RTzUCcbWcxtpjn9V.jpg",
-    },
-    {
-      number: 6,
-      graphicLink:
-        "https://image.tmdb.org/t/p/original/r4BweFFbjiZCQtHqRsNPdgdzZq5.jpg",
-    },
-    {
-      number: 7,
-      graphicLink:
-        "https://image.tmdb.org/t/p/original/o9ilgVRlPt5nd9sDAgNSq6zYyy4.jpg",
-    },
-    {
-      number: 8,
-      graphicLink:
-        "https://image.tmdb.org/t/p/original/3Q2tlBbSJxL7I9oUU7abWnL8nAs.jpg",
-    },
-    {
-      number: 9,
-      graphicLink:
-        "https://image.tmdb.org/t/p/original/bA7XKYFmr8uuM6Yw6yHhJks9bRR.jpg",
-    },
-    {
-      number: 10,
-      graphicLink:
-        "https://image.tmdb.org/t/p/original/j7fMYs4qiVqaPz9dBCT9ddG8yuV.jpg",
-    },
-  ];
-
   const [mNumber, setMNumber] = useState(0);
 
   const NavLink = ({ text, link }) => {
@@ -197,8 +198,9 @@ function HomePage() {
 
         <section className="text-white bg-black p  mb-5">
           <h1 className="text-2xl my-2 pl-32">Trending Now </h1>
-          <div className="shadow-lg backdrop-blur-sm">
-            <TrendingSlider trendingMovies={trendingMovies} />
+          <div className="shadow-lg backdrop-blur-sm pl-32">
+            {/* <TrendingSlider trendingMovies={trendingMovies} /> */}
+            {<TrendingCardSlider trendingMovies={trendingMovies} />}
           </div>
         </section>
         <section className="text-white my-10 ">

@@ -41,7 +41,7 @@ export const TrendingSlider = ({ trendingMovies }) => {
           return (
             <TrendingCard
               key={movie.number}
-              number={movie.number}
+              name={movie.number}
               graphicLink={movie.graphicLink}
             />
           );

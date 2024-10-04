@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import ModalComp from "./ModalComp";
 
-function TrendingCard({ number, graphicLink }) {
+function TrendingCard({ movie }) {
   const [isOpen, setIsOpen] = useState(false);
+  const baseImageUrl = "https://image.tmdb.org/t/p/original";
 
   const handleIsOpen = () => {
     if (isOpen) {
@@ -14,19 +15,22 @@ function TrendingCard({ number, graphicLink }) {
 
   return (
     <>
-      <div>
+      <div className="border-2 border-white h-52 w-44  rounded-lg bg-gray-900 border-opacity-15 shadow-sm  opacity-65 ">
         <div
           style={{
-            backgroundImage: `url(${graphicLink})`,
+            backgroundImage: `url(${baseImageUrl}${movie.backdrop_path})`,
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            height: "50%",
           }}
-          className="border-2 border-white h-52 w-44 p-3 rounded-lg bg-gray-900 border-opacity-15 shadow-sm  opacity-65 "
           onClick={handleIsOpen}
-        >
-          <div className="relative top-12 right-3 z-10 text-3xl">{number}</div>
+        ></div>
+        <div className="text-center text-sm mt-10">
+          <h1>{movie.original_title}</h1>
         </div>
-        <div>
-          {isOpen && <ModalComp isOpen={isOpen} setIsOpen={setIsOpen} />}
-        </div>
+      </div>
+      <div>
+        {/* {isOpen && <ModalComp isOpen={isOpen} setIsOpen={setIsOpen} />} */}
       </div>
     </>
   );

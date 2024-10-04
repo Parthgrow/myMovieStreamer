@@ -17,13 +17,7 @@ function TrendingCardSlider({ trendingMovies }) {
       <div className="w-[1200px] px-10">
         <Slider {...settings}>
           {trendingMovies.map((movie) => {
-            return (
-              <TrendingCard
-                key={movie.number}
-                number={movie.number}
-                graphicLink={movie.graphicLink}
-              />
-            );
+            return <TrendingCard key={movie.id} movie={movie} />;
           })}
         </Slider>
       </div>

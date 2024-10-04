@@ -5,15 +5,24 @@ import TestPage from "./pages/TestPage.jsx";
 
 import "./index.css";
 import HomePage from "./pages/HomePage.jsx";
+import MoviesContextProvider from "./context/MoviesContextProvider.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
+    element: (
+      <MoviesContextProvider>
+        <HomePage />
+      </MoviesContextProvider>
+    ),
   },
   {
     path: "/test",
-    element: <TestPage />,
+    element: (
+      <MoviesContextProvider>
+        <TestPage />
+      </MoviesContextProvider>
+    ),
   },
 ]);
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-function JoinComp() {
+function JoinComp({ heading, text }) {
   return (
     <>
       <div>
@@ -11,11 +11,8 @@ function JoinComp() {
             // backgroundColor: "rgb(30,21,39)",
           }}
         >
-          <h1 className="text-2xl">Enjoy Your TV </h1>
-          <p className="text-base text-gray-300 mt-4">
-            Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray
-            players and more.
-          </p>
+          <h1 className="text-2xl">{heading} </h1>
+          <p className="text-base text-gray-300 mt-4">{text}</p>
         </div>
       </div>
     </>

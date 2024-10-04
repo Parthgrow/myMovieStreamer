@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import MoviesContext from "../context/MoviesContext";
 import TrendingCard from "../components/TrendingCard";
 
 import JoinComp from "../components/JoinComp";
@@ -7,6 +8,8 @@ import { TrendingSlider } from "../components/TrendingSlider";
 import netflixBackground from "../assets/netflix_background.png";
 import { backgroundLayout } from "../components/layouts/backgroundLayout";
 import TrendingCardSlider from "../components/TrendingCardSlider";
+import axios from "axios";
+import requests from "../requests";
 
 export const trendingMovies = [
   {
@@ -63,6 +66,7 @@ export const trendingMovies = [
 
 function HomePage() {
   const [mNumber, setMNumber] = useState(0);
+  const { movies, setMovies } = useContext(MoviesContext);
 
   const NavLink = ({ text, link }) => {
     return (
@@ -118,6 +122,8 @@ function HomePage() {
       setMNumber(0);
     }
   };
+
+  console.log(movies);
 
   return (
     <>
@@ -200,16 +206,36 @@ function HomePage() {
           <h1 className="text-2xl my-2 pl-32">Trending Now </h1>
           <div className="shadow-lg backdrop-blur-sm pl-32">
             {/* <TrendingSlider trendingMovies={trendingMovies} /> */}
-            {<TrendingCardSlider trendingMovies={trendingMovies} />}
+            {<TrendingCardSlider trendingMovies={movies} />}
           </div>
         </section>
         <section className="text-white my-10 ">
           <h1 className="text-2xl my-2 pl-36 mb-5"> More reasons to join </h1>
           <div className="flex justify-center gap-7">
-            <JoinComp />
-            <JoinComp />
-            <JoinComp />
-            <JoinComp />
+            <JoinComp
+              heading={"Enjoy on your Tv"}
+              text={
+                "Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more."
+              }
+            />
+            <JoinComp
+              heading={"Download your shows to watch offline"}
+              text={
+                "Save your favourites easily and always have something to watch."
+              }
+            />
+            <JoinComp
+              heading={"Watch everywhere"}
+              text={
+                "Stream unlimited movies and TV shows on your phone, tablet, laptop and TV."
+              }
+            />
+            <JoinComp
+              heading={"Create profiles for kids"}
+              text={
+                "Send kids on adventures with their favourite characters in a space made just for them — free with your membership."
+              }
+            />
           </div>
         </section>
 
@@ -217,10 +243,30 @@ function HomePage() {
           <div className=" px-16">
             <h1 className="text-2xl my-2 mb-5">Frequently Asked Questions</h1>
             <div className="flex flex-col gap-2">
-              <FAQComp />
-              <FAQComp />
-              <FAQComp />
-              <FAQComp />
+              <FAQComp
+                heading={"What is Netflix ?"}
+                text={
+                  "Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries and more – on thousands of internet-connected devices.You can watch as much as you want, whenever you want, without a single ad – all for one low monthly price. There's always something new to discover, and new TV shows and movies are added every week!"
+                }
+              />
+              <FAQComp
+                heading={"How much does Netflix cost?"}
+                text={
+                  "Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries and more – on thousands of internet-connected devices.You can watch as much as you want, whenever you want, without a single ad – all for one low monthly price. There's always something new to discover, and new TV shows and movies are added every week!"
+                }
+              />
+              <FAQComp
+                heading={"How can I cancel?"}
+                text={
+                  "Netflix is flexible. There are no annoying contracts and no commitments. You can easily cancel your account online in two clicks. There are no cancellation fees – start or stop your account anytime."
+                }
+              />
+              <FAQComp
+                heading={"Is Netflix good for kids ?"}
+                text={
+                  "The Netflix Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and films in their own space.Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content kids can watch and block specific titles you don’t want kids to see."
+                }
+              />
             </div>
           </div>
         </section>
